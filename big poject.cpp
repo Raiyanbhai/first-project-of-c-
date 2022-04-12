@@ -6,9 +6,12 @@ class Bank
 	private: char a1[20],a2[20],a3[20],a4[20],
 	              a5[20],a6[20]="NO",a7[20];
 	         int pow,pow2;
+	         string name1;
+	         string name2;
 	public:
 	void getdetail()
-	{
+{
+	   clrscr();
 		cout<<"\t\t\t\"WECOME TO IN MY PUBLIC BANK\""<<endl;
 		cout<<"*Please fill this form to open your saving account in the PUBLIC BANK *\n"<<endl;
 		cout<<"Enter your first name :";
@@ -19,8 +22,12 @@ class Bank
 		cin>>a3;
 		cout<<"\n*write full name without any space*"<<endl;
 		cout<<"Enter your father name :";
+	   //getline(cin,name1);
 		cin>>a4;
+	// cin.ignore();
 		cout<<"Enter your mother name:";
+	   //getline(cin,name2);
+	// cin.ignore();
 		cin>>a5;
 		cout<<"Relation(in optional):-"<<endl;
 		cout<<"\t\t\t\t1.married\n\t\t\t\t2.unmarried"<<endl;
@@ -41,24 +48,28 @@ class Bank
 		}
 		cout<<"check:-\n\t\t1.Next\n\t\t2.Renter detail's"<<endl;
 		cout<<"Enter here:";
-		cin>>pow2;
-		cout<<"Renter here:";
 		cin>>pow;
-		if(pow2==pow)
+		if(pow==pow)
 		{
+			do
+			{
+				cout<<"Conform it :";
+				cin>>pow;
+			}while(pow>2||pow==0);
 		}
 		else
 		{
 		do
 		{
+	    cout<<"you have done some mistake please recheck it!"<<endl;
 		cout<<"check:-\n\t\t1.Next\n\t\t2.Renter detail's"<<endl;
 		cout<<"Enter here:";
 		cin>>pow2;
 		cout<<"Renter here:";
 		cin>>pow;
-		}while(pow!=pow2);
+		}while(a1==0||pow>2);
 		}
-		switch(pow2)
+		switch(pow)
 		{
 			  case 1:
 			  break;
@@ -71,65 +82,52 @@ class Bank
 		cin>>a3;
 		cout<<"\n*write full name without any space*"<<endl;
 		cout<<"Enter your father full name :";
+		//getline(cin,name1);
 		cin>>a4;
 		cout<<"Enter your mother full name:";
+		//getline(cin,name2);
 		cin>>a5;
 		cout<<"Relation(in optional):-"<<endl;
 		cout<<"\t\t\t\t1.married\n\t\t\t\t2.unmarried"<<endl;
 		cout<<"Enter here :";
 		cin>>pow;
 		switch(pow)
-		{
+		 {
 			case 1:
 			cout<<"Enter your (husband/wife)name :";
 			cin>>a6;
 			break;
 			case 2:
-			cout<<a6<<endl;
 			break;
 			default:
 			cout<<"It means you have no marital status!"<<endl;
 			break;
 		  }
-			  break;
-			  default:
-	    cout<<"you have done some mistake please recheck it!"<<endl;
-	    cout<<"check:-\n\t\t1.Next\n\t\t2.Renter detail's"<<endl;
-		cout<<"Enter here:";
-		cin>>pow2;
-		cout<<"Renter here:";
-		cin>>pow;
-		if(pow2==pow)
-		{
-		}
-		else
-		{
-		do
-		{
-		cout<<"check:-\n\t\t1.Next\n\t\t2.Renter detail's"<<endl;
-		cout<<"Enter here:";
-		cin>>pow2;
-		cout<<"Renter here:";
-		cin>>pow;
-		}while(pow!=pow2);
-		}
-			  break;
+		break;
+	    default:
+	    cout<<"Some error is rise!"<<endl;
+		break;
 		}
 		cout<<"Enter your (home/town) :";
 		cin>>a7;
 		
-	}
-	void show()//show function
-	{
-		 cout<<endl<<"\nyour name is :"<<a1 <<a2 <<a3 <<endl;
-		cout<<"your father name is :"<<a4<<endl;
-		cout<<"your mother name is :"<<a5<<endl;
-		cout<<"your (husband/wife) name is :"<<a6<<endl;
-		cout<<"your home town is :"<<a7<<endl;
+}
+	    void show()//show function
+	   {
+	   	clrscr();
+	   	 cout<<"****************************************************"<<endl;
+         cout<<"\t\t#$>( \"DEVELOPED BY RAIYAN KHAN\" )<$#"<<endl;
+         cout<<"____________________________________________________"<<endl;
+         cout<<"____________________________________________________"<<endl;
+		 cout<<"your name is :"<<a1 <<a2 <<a3 <<endl;
+	     cout<<"your father name is :"<<a4<<endl;
+		 cout<<"your mother name is :"<<a5<<endl;
+	     cout<<"your (husband/wife) name is :"<<a6<<endl;
+		 cout<<"your home town is :"<<a7<<endl;
 		}
-	friend class Costumer;
+	//friend class Costumer;
 };
-class Costumer:public Bank
+class Costumer: public Bank
 {
 	private: int d,d2;
 	         char t1[9]="Nepal",t2[9]="India",t3[10]="Pakishtan",t4[9]="chaina",t5[9]="Japan",t6[9]="America",t7[9]="Saudi",t8[9]="Qutar",t9[13]="Bangaladesh",t10[9]="Bhutan";
@@ -142,21 +140,23 @@ class Costumer:public Bank
 		cout<<"\t\t\t1.Nepal\n\t\t\t2.India\n\t\t\t3.Pakishtan\n\t\t\t4.chaina\n\t\t\t5.Japan\n\t\t\t6.America\n\t\t\t7.Saudi\n\t\t\t8.Qutar\n\t\t\t9.Bangaladesh\n\t\t\t10.Bhutan"<<endl;
 		cout<<"Choose your country :";
 		cin>>d;
-		cout<<"renter :";
-		cin>>d2;
-        if(d==d2)
+        if(d==d)
         {
+        	do
+        	{
+        		cout<<"Conform your country :";
+        		cin>>d;
+        	}while(d>10||d==0);
         }
         else
         {
 		   do
 		   {
-		    cout<<"Not available in this country"<<endl;
+		    cout<<"\n\nNot available in this country"<<endl;
+		    cout<<"Conform >:"<<endl;
 		    cout<<"Choose your country :";
 		    cin>>d;
-	    	cout<<"renter :";
-	    	cin>>d2;
-		    }while(d!=d2);
+		    }while(d>10||d==0);//(d!=d2);
 	     }		
 	}
 	void getdetail3()
@@ -196,8 +196,9 @@ class Costumer:public Bank
 		}
 		cout<<"Success"<<endl;
 	}
-	    void show1()//enter here
+	    void show1()
 	    {
+	    	//void show();
 	    	switch(d)
 	  {
 		case 1:
@@ -240,7 +241,7 @@ class Costumer:public Bank
 	    }
 	
 };
-class Account:public Costumer
+class Account:public Costumer 
 {
 	private: float p,r=3,i,i2,m1,j;
 	        int t;
@@ -253,11 +254,13 @@ class Account:public Costumer
 		cout<<"Enter your time period to save your money in your account:-"<<endl;
 		cout<<"\t\t1.for one year\n\t\t2.for two year\n\t\t3.for three year";
 		cout<<"\n\t\t4.for one month\n\t\t5.for two month\n\t\t6.for three month"<<endl;
+		cout<<"Select any one opt :";
 		cin>>t;
 		cout<<endl<<"\n\n\n\n";
 	}
 	void display()
 	{
+		//void show1();
 		switch(t)
 		{
 			case 1:
@@ -310,7 +313,7 @@ class Account:public Costumer
 			cout<<"Sorry! this period is not available for now"<<endl;
 			break;
 		}
-	}         
+	}      
 };
 class Check:public Account
 {
@@ -322,10 +325,13 @@ class Check:public Account
 		cout<<"\t\t\t1.Submit\n\t\t\t2.Reset\n\t\t\t3.Cancale"<<endl;
 		cout<<"Emter here :";
 		cin>>a;
-		cout<<"Conform it :";
-		cin>>b;
-		if(a==b)
+		if(a==a)
 		{
+			do
+			{
+				cout<<"Conform it :";
+		        cin>>a;
+			}while(a>3||a==0);
 		}
 		else
 		{
@@ -334,47 +340,38 @@ class Check:public Account
 				cout<<"ERROR!"<<endl;		
 				cout<<"\nFinal check:-"<<endl;
 		        cout<<"\t\t\t1.Submit\n\t\t\t2.Reset\n\t\t\t3.Cancale"<<endl;
-		        cout<<"Emter here :";
+		        cout<<"Renter here :";
 		        cin>>a;
-		        cout<<"Conform it :";
-		        cin>>b;	
-			}while(a!=b);
+			}while(a>3||a==0);
 		}
 		switch(a)
 		{
 			case 1:
-			  show();
-	          show1();
-	          display();
+            show();
+	        show1();
+	        display();
 			break;
 			case 2:
-		      getdetail();
-	          getdetail2();
-	          getdetail3();
-	          getaccount();
-			  show();
-	          show1();
-	          display();
+		     getdetail();
+	         getdetail2();
+	         getdetail3();
+	         getaccount();
+		     show();
+	         show1();
+	         display();
 			break;
 			case 3:
 			cout<<"your all form is canceled!"<<endl;
 			break;
 			default:
-			do
-			{
-			    cout<<"ERROR!"<<endl;		
-				cout<<"\nFinal check:-"<<endl;
-		        cout<<"\t\t\t1.Submit\n\t\t\t2.Reset\n\t\t\t3.Cancale"<<endl;
-		        cout<<"Emter here :";
-		        cin>>a;
-		        cout<<"Conform it :";
-		        cin>>b; 
-			}while(a!=b);
+	        cout<<"still error! are rise"<<endl;
+	        break;
 		}
 	}
 };
 int main()
 {
+	int d;
 	Bank b;
 	Costumer c;
 	Account a;
@@ -384,8 +381,14 @@ int main()
 	c.getdetail3();
 	a.getaccount();
 	b.show();
-    c.show1() 
+	c.show1();
 	a.display();
 	//c1.checkfun();
 	return 0;
 }
+/*
+cout<<"****************************************************"<<endl;
+cout<<"\t\t#$>( \"DEVELOPED BY RAIYAN KHAN\" )<$#"<<endl;
+cout<<"____________________________________________________"<<endl;
+cout<<"____________________________________________________"<<endl;
+*/
